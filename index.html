@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./calculator.css">
+    
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calculator{
+    width: 350px;
+    height: 420px;
+    border: 100%;
+    background-color: blue;
+}
+button{
+    margin-top: 10px;
+    width: 70px;
+    height: 58px;
+    border-radius: 10px;
+    background-color: gray;
+    color: aquamarine;
+    margin-left: 10px;
+}
+#result{
+    width: 300px;
+    height: 55px;
+    margin-left: 20px;
+    margin-top: 15px;
+    border-radius: 15px;
+    font-size: 45px;
+    text-align: end;
+}
+#equal{
+    width: 80px;
+}
+#title{
+    text-align: center;
+    margin-top: 5px;
+    font-size: 75px;
+    color: white;
+}
+#description{
+    text-align: center;
+    margin-top: 5px;
+    font-size: 35px;
+    color: white;
+}
+
+
+</style>
+</head>
+<body style="background-color: black;">
+    <h1 id="title" style="color: white;">calculator</h1>
+    <p id="description" style="color: white;">This is basic calculator in my project.</p>
+    <script src="https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js"></script>
+    <div class="container">
+        <div class="calculator">
+            <input type="text"  id="result"><br>
+            <button onclick="clearall()" id="clear">CL</button>
+            <button onclick="del()">Del</button>
+            <button onclick="display('%')" id="modules">%</button>  
+            <button onclick="display('/')" id="slash">/</button><br>
+            <button onclick="display('7')" id="7">7</button>
+            <button onclick="display('8')" id="8">8</button>
+            <button onclick="display('9')" id="9">9</button>
+            <button onclick="display('*')" id="star">*</button><br>
+            <button onclick="display('4')" id="4">4</button>
+            <button onclick="display('5')" id="5">5</button>
+            <button onclick="display('6')" id="6">6</button>
+            <button onclick="display('-')" id="subtract">-</button><br>
+            <button onclick="display('1')" id="1">1</button>
+            <button onclick="display('2')" id="2">2</button>
+            <button onclick="display('3')" id="3">3</button>
+            <button onclick="display('+')" id="add">+</button><br>
+            <button onclick="display('.')" id="dot">.</button>
+            <button onclick="display('0')" id="zero">0</button>
+            <button onclick="cal()" id="equal">=</button>
+        </div>
+        
+    </div>
+    <script>
+           let inputscreen = document.getElementById('result');
+  function display (num) {
+    inputscreen.value += num;
+  }
+
+  function cal () {
+    try {
+        inputscreen.value = eval(inputscreen.value);
+    }
+    catch(err) {
+         alert('Enter Number Only')
+    }
+  }
+
+   function clearall() {
+    inputscreen.value = '';
+   }  
+  
+
+   function del() {
+    inputscreen.value = inputscreen.value.slice(0,-1)
+   }
+
+    </script>
+    
+</body>
+</html>
